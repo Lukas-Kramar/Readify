@@ -70,25 +70,24 @@ function getPublicBookReviews(bookId) {
     }
 }
 
-// Method to remove an note from a file
-// TODO - impelement remove + write it into the uu-doc
-// function remove(noteId) {
-//     try {
-//         const filePath = path.join(bookReviewFolderPath, `${noteId}.json`);
-//         fs.unlinkSync(filePath);
-//         return {};
-//     } catch (error) {
-//         if (error.code === "ENOENT") {
-//             return {};
-//         }
-//         throw { code: "failedToRemoveNote", note: error.note };
-//     }
-// }
+// Method to remove an bookReview from a file
+function remove(bookReviewId) {
+    try {
+        const filePath = path.join(bookReviewFolderPath, `${bookReviewId}.json`);
+        fs.unlinkSync(filePath);
+        return {};
+    } catch (error) {
+        if (error.code === "ENOENT") {
+            return {};
+        }
+        throw { code: "failedToRemoveNote", note: error.note };
+    }
+}
 
 module.exports = {
     get,
     create,
     update,
     getPublicBookReviews,
-    //remove,
+    remove,
 };

@@ -49,7 +49,6 @@ function update(readingList) {
 }
 
 // Method to get list of bookGenres in a folder by filter
-// TODO - remove from work document because users are not implemented???
 function getUserLists(userId) {
     try {
         const files = fs.readdirSync(readingListFolderPath);
@@ -65,42 +64,9 @@ function getUserLists(userId) {
     }
 }
 
-
-
-// Method to read an note from a file
-// function get(noteId) {
-//     try {
-//         const filePath = path.join(readingListFolderPath, `${noteId}.json`);
-//         const fileData = fs.readFileSync(filePath, "utf8");
-//         return JSON.parse(fileData);
-//     } catch (error) {
-//         if (error.code === "ENOENT") return null;
-//         throw { code: "failedToReadNote", note: error.note };
-//     }
-// }
-
-
-
-// Method to remove an note from a file
-// TODO - impelement remove + write it into the uu-doc
-// function remove(noteId) {
-//     try {
-//         const filePath = path.join(readingListFolderPath, `${noteId}.json`);
-//         fs.unlinkSync(filePath);
-//         return {};
-//     } catch (error) {
-//         if (error.code === "ENOENT") {
-//             return {};
-//         }
-//         throw { code: "failedToRemoveNote", note: error.note };
-//     }
-// }
-
 module.exports = {
     get,
     create,
     update,
-    getUserLists,
-    //remove,
-    //list,
+    getUserLists,  
 };

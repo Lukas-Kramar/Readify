@@ -1,1 +1,7 @@
-{"name":"Thriller about JS promises","authors":["Mr. JavaScript"],"bookDescription":"Author promises that it will be good","bookGenres":[{"name":"Fantasy","id":"c6037c8f5eddacdeaf9cfbbcb6ac91d0"}],"id":"433793b12fea4be9b884c1d93f86ec38"}
+{
+  "name": "Thriller about JS promises",
+  "authors": ["Mr. JavaScript"],
+  "bookDescription": "Author promises that it will be good",
+  "bookGenreIds": ["c6037c8f5eddacdeaf9cfbbcb6ac91d0"],
+  "id": "433793b12fea4be9b884c1d93f86ec38"
+}

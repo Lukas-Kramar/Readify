@@ -3,16 +3,6 @@ const ajv = new Ajv();
 
 const bookDao = require("../../dao/book-dao.js");
 
-const bookGenreSchema = {
-    type: "object",
-    properties: {
-        id: { type: "string" }, // generated unique code
-        name: { type: "string" } // name of the book
-    },
-    required: ["id", "name"],
-    additionalProperties: false
-};
-
 const schema = {
     type: "object",
     properties: {
@@ -23,12 +13,12 @@ const schema = {
             items: { type: "string" }
         },
         bookDescription: { type: "string" }, // description of the book
-        bookGenres: {
+        bookGenreIds: { // books genres
             type: "array",
-            items: bookGenreSchema
+            items: { type: "string" }
         }
     },
-    required: ["name", "authors", "bookDescription", "bookGenres"],
+    required: ["name", "authors", "bookDescription", "bookGenreIds"],
     additionalProperties: false
 };
 

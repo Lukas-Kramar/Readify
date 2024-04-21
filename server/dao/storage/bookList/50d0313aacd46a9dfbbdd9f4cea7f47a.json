@@ -1,1 +1,1 @@
-{"name":"Basics of cooking bananas","authors":["Mischellin"],"bookDescription":"Awesome way to learn PHP and Pascal","bookGenres":[{"name":"Fantasy","id":"c6037c8f5eddacdeaf9cfbbcb6ac91d0"}],"id":"50d0313aacd46a9dfbbdd9f4cea7f47a"}
+{"name":"Basics of cooking bananas","authors":["Mischellin"],"bookDescription":"Awesome way to learn PHP and Pascal","bookGenreIds":["c6037c8f5eddacdeaf9cfbbcb6ac91d0"],"id":"50d0313aacd46a9dfbbdd9f4cea7f47a"}

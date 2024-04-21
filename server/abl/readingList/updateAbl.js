@@ -15,22 +15,22 @@ const schema = {
             type: "array",
             items: { type: "string" }
         },
-        readingListBooks: { // on creation it is empty array
-            type: "array",
-            items: {
-                type: "object",
-                properties: {
-                    bookId: { type: "string" }, // id of the book
-                    dateTimeStartedReading: { type: "string", format: "date-time" }, // when user started reading the book
-                    dateTimeFinishedReading: { type: "string", format: "date-time" }, // when user finished reading (null if not finished)
-                    reviewId: { type: "string" } // id of review - created after user finishes reading the book
-                },
-                required: ["bookId",],
-                additionalProperties: false
-            }
-        }
+        // readingListBooks: { // on creation it is empty array
+        //     type: "array",
+        //     items: {
+        //         type: "object",
+        //         properties: {
+        //             bookId: { type: "string" }, // id of the book
+        //             dateTimeStartedReading: { type: "string", format: "date-time" }, // when user started reading the book
+        //             dateTimeFinishedReading: { type: "string", format: "date-time" }, // when user finished reading (null if not finished)
+        //             reviewId: { type: "string" } // id of review - created after user finishes reading the book
+        //         },
+        //         required: ["bookId",],
+        //         additionalProperties: false
+        //     }
+        // }
     },
-    required: ["id", "name", "readingListGenresIds", "readingListBooks"],
+    required: ["id", "name", "readingListGenresIds"],
     additionalProperties: false
 };
 
@@ -40,7 +40,6 @@ async function UpdateAbl(req, res) {
     try {
         let readingList = req.body;
 
-        // TODO - add method that will validate if all books in books array have correct genreId
         // validate input
         const valid = ajv.validate(schema, readingList);
         if (!valid) {
