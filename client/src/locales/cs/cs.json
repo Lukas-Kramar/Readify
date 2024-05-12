@@ -1,0 +1,92 @@
+{
+  "nav": {},
+  "App": {
+    "alertNoShopListSelected": "Není vybrán žádný nákupní seznam (správa seznamů se nachází na pravé straně respektive v menu).",
+    "title": "Nákupní seznamy: "
+  },
+  "Header": {
+    "shoppingLists": "Nákupní seznamy"
+  },
+  "Footer": {
+    "createdBy": "Vytvořil: ",
+    "author": "Lukáš Kramár"
+  },
+  "ShoppingListDetail": {
+    "loading": "Načítání nákupního seznamu...",
+    "modals": {
+      "AddProductModal": {
+        "title": "Přidat produkt",
+        "productName": "Název produktu",
+        "placeHolder": "Nová položka..."
+      },
+      "RenameProductModal": {
+        "title": "Přejmenovat seznam",
+        "listName": "Název seznamu"
+      },
+      "ArchiveListModal": {
+        "title": "Archivovat seznam",
+        "text": "Opravdu chcete tento seznam archivovat?",
+        "actionButton": "Archivovat"
+      },
+      "DeleteListModal": {
+        "title": "Odstranit seznam",
+        "text": "Opravdu chcete tento seznam smazat?",
+        "actionButton": "Odstranit"
+      },
+      "ManageListMembersModal": {
+        "title": "Spravovat členy",
+        "addMember": "Přidat nového člena",
+        "owner": "Správce: "
+      },
+      "LeaveListModal": {
+        "title": "Opustit seznam",
+        "text": "Opravdu chcete tento seznam opustit?",
+        "actionButton": "Opustit"
+      }
+    },
+    "archived": "(Archivováno)",
+    "manageMembersButton": "Spravovat členy",
+    "renameListButton": "Přejmenovat seznam",
+    "archiveListButton": "Archivovat seznam",
+    "deleteListButton": "Smazat seznam",
+    "viewMembers": "Zobrazit členy",
+    "addProductButton": "Přidat produkt",
+    "showAccomplishedToggle": "Zobrazit splněné položky",
+    "hideAccomplishedToggle": "Schovat splněné položky",
+    "chartAccomplishedProducts": "Grafické znázornění nakoupených položek:",
+    "errorTitle": "Error 404: Seznam nebyl nalezen",
+    "errorAlert": "Seznam s tímto ID neexistuje, anebo nejste jeho členem/správcem."
+  },
+  "List": {
+    "modals": {
+      "CreateListModal": {
+        "title": "Vytvořit nákupní seznam",
+        "listName": "Název seznamu"
+      }
+    },
+    "createListButton": "Vytvořit seznam",
+    "showArchivedButton": "Zobrazit archivované",
+    "hideArchivedButton": "Schovat archivované",
+    "emptyShoppingListArray": "Nejsou k dispozici žádné nákupní seznamy - vytvořte je prosím"
+  },
+  "ProductList": {
+    "undefinedProducts": "Produkty se nepodařilo načíst"
+  },
+  "AcomplishedPieChart": {
+    "accomplished": "Splněné položky",
+    "unAccomplished": "Nesplněné položky"
+  },
+  "ShoppingListBarChart": {
+    "items": "Počet položek:"
+  },
+  "defaultValues": {
+    "undefined": "----",
+    "add": "Přidat",
+    "remove": "Odstranit",
+    "save": "Uložit",
+    "ok": "Ok",
+    "close": "Zavřít",
+    "validFeedback": "Vypadá to dobře!",
+    "loading": "Načítání..."
+  }
+}

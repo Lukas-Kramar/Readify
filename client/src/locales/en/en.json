@@ -1,0 +1,92 @@
+{
+  "nav": {},
+  "App": {
+    "alertNoShopListSelected": "No shopping list selected (manage lists on the right side or in the menu).",
+    "title": "Shopping Lists: "
+  },
+  "Header": {
+    "shoppingLists": "Shopping Lists"
+  },
+  "Footer": {
+    "createdBy": "Created by: ",
+    "author": "Lukáš Kramár"
+  },
+  "ShoppingListDetail": {
+    "loading": "Loading shopping list...",
+    "modals": {
+      "AddProductModal": {
+        "title": "Add Product",
+        "productName": "Product Name",
+        "placeHolder": "New Product Name..."
+      },
+      "RenameProductModal": {
+        "title": "Rename List",
+        "listName": "List Name:"
+      },
+      "ArchiveListModal": {
+        "title": "Archive List",
+        "text": "Are you sure you want to archive this list: ",
+        "actionButton": "Archive"
+      },
+      "DeleteListModal": {
+        "title": "Delete List",
+        "text": "Are you sure you want to delete this list: ",
+        "actionButton": "Delete"
+      },
+      "ManageListMembersModal": {
+        "title": "Manage Members",
+        "addMember": "Add New Member",
+        "owner": "Owner: "
+      },
+      "LeaveListModal": {
+        "title": "Leave List",
+        "text": "Are you sure you want to leave this list: ",
+        "actionButton": "Leave"
+      }
+    },
+    "archived": "(Archived)",
+    "manageMembersButton": "Manage Members",
+    "renameListButton": "Rename List",
+    "archiveListButton": "Archive List",
+    "deleteListButton": "Delete List",
+    "viewMembers": "View Members",
+    "addProductButton": "Add Product",
+    "showAccomplishedToggle": "Show Accomplished Items",
+    "hideAccomplishedToggle": "Hide Accomplished Items",
+    "chartAccomplishedProducts": "Graph showing number of Accomplished and Unaccomplished products:",
+    "errorTitle": "Error 404: List Not Found",
+    "errorAlert": "This list with the given ID does not exist, or you are not a member/owner."
+  },
+  "List": {
+    "modals": {
+      "CreateListModal": {
+        "title": "Create Shopping List",
+        "listName": "List Name:"
+      }
+    },
+    "createListButton": "Create List",
+    "showArchivedButton": "Show Archived",
+    "hideArchivedButton": "Hide Archived",
+    "emptyShoppingListArray": "No shopping lists available - please create some."
+  },
+  "ProductList": {
+    "undefinedProducts": "Failed to load products"
+  },
+  "AcomplishedPieChart": {
+    "accomplished": "Accomplished Products",
+    "unAccomplished": "Unaccomplished Products"
+  },
+  "ShoppingListBarChart": {
+    "items": "Number of Items:"
+  },
+  "defaultValues": {
+    "undefined": "----",
+    "add": "Add",
+    "remove": "Remove",
+    "save": "Save",
+    "ok": "Ok",
+    "close": "Close",
+    "validFeedback": "Looks good!",
+    "loading": "Loading..."
+  }
+}
