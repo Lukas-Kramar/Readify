@@ -12,6 +12,7 @@ function Layout() {
                 <Outlet />
             </main>
             <Footer />
+            <div style={{ width: "100%", height: "75px" }}></div>
         </div>
     );
 }

@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col';
 import Spinner from 'react-bootstrap/Spinner';
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form';
-import { createReadingList, getAllBooks, getBook, getBookGenre, getUsersReadingLists, updateReadingList } from "../../api/apiCalls";
+import { addBookToList, createReadingList, getAllBooks, getBook, getBookGenre, getUsersReadingLists, updateReadingList } from "../../api/apiCalls";
 import BasicModal from "../../components/modals/BasicModal";
 import Badge from "react-bootstrap/esm/Badge";
 
@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 import { Card } from "react-bootstrap";
 
 const BookCard = (props) => {
-    const { book, bookGenres } = props;
+    const { book, bookGenres, setModalVersion, setEditBook } = props;
 
     if (!book) return null;
     return (
@@ -28,12 +28,12 @@ const BookCard = (props) => {
                 </Card.Text>
 
                 <p>
-                    <span className="fw-bold">Autoři:</span>
+                    <span className="fw-bold">Autoři: {" "}</span>
                     {book.authors.map((author) => <Badge key={author} className="me-1" bg="primary" >{author}</Badge>)}
                 </p>
 
                 <p>
-                    <span className="fw-bold">Žánr:</span>
+                    <span className="fw-bold">Žánr: {" "}</span>
                     {book.bookGenreIds.map((genre) => {
                         return (
                             <Badge key={"span-" + genre} className="me-1" variant="primary" >
@@ -46,6 +46,8 @@ const BookCard = (props) => {
                 <IconButton
                     text="Přidat do seznamu"
                     onClick={() => {
+                        setEditBook(book);
+                        setModalVersion("add-book-to-list");
                     }}
                     variant="primary"
                     styling="me-1 mb-1"
@@ -65,37 +67,26 @@ const Explore = (props) => {
 
     const [bookGenres, setBookGenres] = useState([]);
     const [editBook, setEditBook] = useState(null);
+    const [selectedList, setSelectedList] = useState("");
 
     const closeModal = () => {
         setModalVersion("");
     }
 
-    // const createListHandler = async () => {
-    //     try {
+    const addBookToListHandler = async () => {
+        try {
+            // TODO - dates + repair backend
+            const listBook = { bookId: editBook.id, dateTimeStartedReading: "2024-04-15T18:40:19.130Z", dateTimeFinishedReading: "2024-04-15T18:40:19.130Z", reviewId: "" };
+            const result = await addBookToList(selectedList, listBook);
 
-    //         const updateListObject = {
-    //             id: editList.id,
-    //             name: editList.name,
-    //             readingListGenresIds: editList.readingListGenresIds,
-    //         }
-
-    //         const result = await updateReadingList(updateListObject);
-    //         const index = readingLists.findIndex(list => list.id === result.id);
-
-    //         if (index !== -1) {
-    //             const updatedReadingLists = [...readingLists];
-    //             updatedReadingLists[index] = result;
-
-    //             setReadingLists(updatedReadingLists);
-    //         }
-
-    //         setEditBook(null);
-    //         closeModal();
-    //     }
-    //     catch (err) {
-    //         console.warn(err);
-    //     }
-    // }
+            setEditBook(null);
+            setSelectedList("");
+            closeModal();
+        }
+        catch (err) {
+            console.warn(err);
+        }
+    }
 
     useEffect(() => {
         const fetchAllBooks = async () => {
@@ -138,20 +129,20 @@ const Explore = (props) => {
                 title={'Přidat knihu do seznamu'}
                 closeButtonText={'Zavřít'}
                 actionButtonText={"Přidat"}
-                //onActionButtonClick={createListHandler}
+                onActionButtonClick={addBookToListHandler}
                 // Todo add disabled book handler
                 onCloseButtonClick={closeModal}
             >
-                <Form noValidate >
+                <Form noValidate onSubmit={addBookToListHandler} >
                     <Form.Group controlId="bookListSelect">
                         <Form.Label>Seznam do kterého chcete knihu přidat</Form.Label>
 
                         <Form.Select
                             aria-label="Seznam do kterého chcete knihu přidat"
-                        // TODO - chová se divně 
-                        //onChange={(e) => addListGenreHandler(e.target.value)}
+
+                            onChange={(e) => setSelectedList(e.target.value)}
                         >
-                            <option value="">Přidat knižní žánr</option>
+                            <option value="">--- Vyberte knižní seznam ---</option>
                             {readingLists.map((list) => {
                                 return <option key={list.id} value={list.id}>{list.name}</option>
                             })}
@@ -169,15 +160,20 @@ const Explore = (props) => {
                     </Col>
                 </Row>
 
-                {
-                    books.map((book) =>
-                        <BookCard
-                            //key={book.id}
-                            bookGenres={bookGenres}
-                            setModalVersion={setModalVersion}
-                            setEditBook={setEditBook}
-                        />
-                    )}
+                <Row>
+                    {
+                        books.map((book) =>
+                            <Col className="mb-4" key={book.id} sm={4}>
+                                <BookCard
+                                    book={book}
+                                    bookGenres={bookGenres}
+                                    setModalVersion={setModalVersion}
+                                    setEditBook={setEditBook}
+                                />
+                            </Col>
+                        )}
+                </Row>
+
             </Container>
         </>
 

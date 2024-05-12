@@ -121,6 +121,27 @@ export const getReadingList = async (id) => {
         throw error; // Rethrow the error
     }
 }
+export const addBookToList = async (listId, book) => {
+    try {
+        const body = { id: listId, book: book };
+        const response = await axios.post('http://localhost:8000/reading-list/add-book',
+            body,
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            }
+        );
+        if (response.status === 200) {
+            return response.data; // Return retrieved data
+        } else {
+            throw new Error(`Unexpected status code: ${response.status}`);
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error.message);
+        throw error; // Rethrow the error
+    }
+}
 export const removeBookFromList = async (listId, bookId) => {
     try {
         const body = { id: listId, bookId: bookId };
@@ -142,6 +163,8 @@ export const removeBookFromList = async (listId, bookId) => {
         throw error; // Rethrow the error
     }
 }
+
+
 
 
 
